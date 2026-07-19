@@ -1,0 +1,12 @@
+package com.example.demo.repository;
+
+import com.example.demo.entity.JournalEntry;
+import com.example.demo.entity.User;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UserRepository extends MongoRepository<User, ObjectId>{
+
+    User findByuserName(String username);
+
+}
