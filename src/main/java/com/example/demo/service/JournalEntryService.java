@@ -32,17 +32,16 @@ public class JournalEntryService {
             user.getJournalEntries().add(saved);
             userService.saveUser(user);
         }catch(Exception e ){
-            log.error("Exception",e);
-//            System.out.println(e);
+            System.out.println(e);
             throw new RuntimeException("An error occured while saving the entry.",e);
         }
     }
     public void SaveEntry(JournalEntry journalEntry){
         journalEntryRepository.save(journalEntry);
     }
-    public List<JournalEntry> getAll(){
-        return journalEntryRepository.findAll();
-    }
+//    public List<JournalEntry> getAll(){
+//        return journalEntryRepository.findAll();
+//    }
 
     public Optional<JournalEntry> findById(ObjectId id){
         return journalEntryRepository.findById(id);

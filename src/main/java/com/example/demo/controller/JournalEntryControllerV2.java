@@ -30,7 +30,7 @@ public class JournalEntryControllerV2 {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName= authentication.getName();
         User user =userService.findByuserName(userName);
-        List<JournalEntry> all = journalEntryService.getAll();
+        List<JournalEntry> all = user.getJournalEntries();
         if(all != null && !all.isEmpty()){
             return new ResponseEntity<>(all,HttpStatus.OK);
         }
