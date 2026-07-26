@@ -16,8 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@Profile("dev")
-public class SpringSecurity {
+@Profile("prod")
+public class SpringSecurityprod {
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
@@ -27,11 +27,7 @@ public class SpringSecurity {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request
-                       .requestMatchers("/public/**").permitAll()
-                        .requestMatchers("/journal/**","/user/**").authenticated()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-//                        .anyRequest().authenticated())
-                        .anyRequest().permitAll())
+                .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
 
         return http.build();

@@ -7,11 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
 
 import static org.mockito.Mockito.*;
 
+@ActiveProfiles("dev")
 public class UserDetailsServiceImplTests {
 
     @InjectMocks
