@@ -7,12 +7,13 @@ import lombok.Setter;
 import java.util.List;
 
 @Getter                                 //serialization pojo to json
-@Setter public class WeatherResponse {  //deserialization json to pojo
+@Setter
+public class WeatherResponse {  //deserialization json to pojo
     private Current current;
 
     @Getter
     @Setter
-    public class Current {
+    public static class Current {
         private int temperature;
         @JsonProperty("weather_descriptions")
         private List<String> weatherDescriptions;

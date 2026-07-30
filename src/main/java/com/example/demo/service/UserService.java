@@ -35,7 +35,7 @@ public class UserService {
             userRepository.save(user);
             return true;
         }catch (Exception e){
-//            log.error("Error occured for {} :",user.getUserName(),e);
+            log.error("Error occured for {} :",user.getUserName(),e);
             log.error("abc");
             log.info("abc");
             log.warn("abc");
